@@ -127,11 +127,11 @@
                         </div>
                         <h2 class="h5 my-4">Estado Visita</h2>
                         <div class="row">
-                            <div class="col-sm-3 mb-3">
+                            <div class="col-md-3 mb-3">
+                                <label for="fecha_visita">Fecha Visita</label>
                                 <div class="input-group">
-                                    <label for="fecha_visita">Fecha Visita</label>
                                     <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                                    <input name="fecha_visita" class="form-control" id="fecha_visita"
+                                    <input name="fecha_visita" data-datepicker="" class="form-control" id="fecha_visita"
                                            type="text" placeholder="dd/mm/yyyy"
                                            value="{{ depto.fecha_visita|date:'m/d/Y'|default:'' }}" >
                                 </div>

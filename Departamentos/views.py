@@ -43,7 +43,6 @@ class DeptoView(View):
 
     def get(self, request):
         context = {'depto': self.depto, 'segment': 'depto'}
-        print(context)
         return render(request, 'departamentos/deptos.html', context)
 
     def post(self, request):

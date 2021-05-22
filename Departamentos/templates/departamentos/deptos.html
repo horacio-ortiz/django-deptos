@@ -1,0 +1,181 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Settings {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main class="content">
+
+        {% include 'includes/navigation.html' %}
+
+
+        <form action="{% url 'depto' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-16 col-xl-12">
+                    <div class="card card-body bg-white border-light shadow-sm mb-4">
+                        <h2 class="h5 mb-4">Informacion Departamento</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="titdepto">Nombre Depto</label>
+                                    <input name="titdepto" class="form-control" id="titdepto" type="text"
+                                           placeholder="Ingresar datos Depto" value="{{ depto.titdepto }}"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="website">URL</label>
+                                    <input name="website" class="form-control" id="website" type="url"
+                                           placeholder="Ingresar WEB" value="{{ depto.website }}"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Contacto</h2>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input name="email" class="form-control" id="email" type="email"
+                                           placeholder="name@company.com" value="{{ depto.email }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="form-group">
+                                    <label for="numero_contacto">Telefono</label>
+                                    <input name="numero_contacto" class="form-control" id="numero_contacto" type="number"
+                                           placeholder="+569" value="{{ depto.numero_contacto }}">
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Direccion</h2>
+                        <div class="row">
+                            <div class="col-sm-9 mb-3">
+                                <div class="form-group">
+                                    <label for="direccion">Direccion</label>
+                                    <input name="direccion" class="form-control" id="direccion" type="text"
+                                           placeholder="Ingresar Direccion"
+                                           value="{{ depto.direccion|default:'' }}" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="num">Numero</label>
+                                    <input name="num" class="form-control" id="num" type="number"
+                                           placeholder="No." value="{{ depto.num|default:'' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4 mb-3">
+                                <div class="form-group">
+                                    <label for="comuna">Comuna</label>
+                                    <input name="comuna" class="form-control" id="comuna" type="text" placeholder="Comuna"
+                                           value="{{ depto.comuna|default:'' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Caracteristicas</h2>
+                        <div class="row">
+                            <div class="col-sm-4 mb-3">
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input name="precio" class="form-control" id="precio" type="number"
+                                           placeholder="Ingresar Precio"
+                                           value="{{ depto.precio|default:'' }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="ambientes">Ambientes</label>
+                                    <input name="ambientes" class="form-control" id="ambientes" type="number"
+                                           placeholder="Ingrese cantidad de ambientes"
+                                           value="{{ depto.ambientes|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="baños">Baños</label>
+                                    <input name="baños" class="form-control" id="baños" type="number"
+                                           placeholder="Ingrese Cantidad de Baños"
+                                           value="{{ depto.baños|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="metros_tot">Metros</label>
+                                    <input name="metros_tot" class="form-control" id="metros_tot" type="number"
+                                           placeholder="Ingres metros tot"
+                                           value="{{ depto.metros_tot|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="piso">Piso</label>
+                                    <input name="piso" class="form-control" id="piso" type="text" placeholder="number"
+                                           value="{{ depto.piso|default:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <h2 class="h5 my-4">Estado Visita</h2>
+                        <div class="row">
+                            <div class="col-sm-3 mb-3">
+                                <div class="input-group">
+                                    <label for="fecha_visita">Fecha Visita</label>
+                                    <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                    <input name="fecha_visita" class="form-control" id="fecha_visita"
+                                           type="text" placeholder="dd/mm/yyyy"
+                                           value="{{ depto.fecha_visita|date:'m/d/Y'|default:'' }}" >
+                                </div>
+                            </div>
+                            <div class="col-sm-9 mb-3">
+                                <div class="form-group">
+                                    <label for="observaciones_visita">Observaciones Visita</label>
+                                    <input name="observaciones_visita" class="form-control" id="observaciones_visita"
+                                           type="text" placeholder="Observaciones" aria-multiline="true"
+                                           value="{{ depto.observaciones_visita|default:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-group">
+                                    <label for="pros">Pros</label>
+                                    <input name="pros" class="form-control" id="pros"
+                                           type="text" placeholder="Pros" aria-multiline="true"
+                                           value="{{ depto.pros|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-group">
+                                    <label for="contras">Contras</label>
+                                    <input name="contras" class="form-control" id="contras"
+                                           type="text" placeholder="Contras" aria-multiline="true"
+                                           value="{{ depto.contras|default:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-primary">Grabar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        {% include 'includes/footer.html' %}
+
+    </main>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

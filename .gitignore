@@ -82,11 +82,11 @@ target/
 celerybeat-schedule
 
 # dotenv
-.env
+#.env
 
 # virtualenv
-venv/
-ENV/
+#venv/
+#ENV/
 
 # Spyder project settings
 .spyderproject
@@ -100,4 +100,4 @@ ENV/
 
 # database & logs
 *.db
-*.sqlite3
+#*.sqlite3

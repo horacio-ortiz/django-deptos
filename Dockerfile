@@ -7,6 +7,7 @@ COPY app app
 COPY authentication authentication
 COPY core core
 COPY customers customers
+COPY Departamentos Departamentos
 
 RUN pip install -r requirements.txt
 

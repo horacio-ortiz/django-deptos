@@ -12,7 +12,7 @@ urlpatterns = [
     path('customers/', include("customers.urls")),  # Django customers route
     path("", include("app.urls")),  # UI Kits Html files
     path("", include("authentication.urls")),  # Auth routes - login / register
-    path("departamentos/", include("Departamentos.urls")),  # Auth routes - depto / register
+    path("departamentos/", include("departamentos.urls")),  # Auth routes - depto / register
 ]
 
 if settings.DEVEL:

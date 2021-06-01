@@ -1,6 +1,6 @@
 from django import forms
 
-from Departamentos.models import Depto
+from departamentos.models import Depto
 
 
 class DeptoForm(forms.ModelForm):

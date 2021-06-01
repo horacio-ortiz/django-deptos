@@ -14,7 +14,7 @@ from django import template
 def index(request):
     context = {'segment': 'index'}
 
-    html_template = loader.get_template('index.html')
+    html_template = loader.get_template('departamentos/depto_list.html')
     return HttpResponse(html_template.render(context, request))
 
 

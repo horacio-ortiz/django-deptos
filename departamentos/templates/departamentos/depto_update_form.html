@@ -91,6 +91,14 @@
                                            value="{{ depto.precio|default:'' }}" required>
                                 </div>
                             </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="gastosc">Gastos Comunes</label>
+                                    <input name="gastosc" class="form-control" id="gastosc" type="number"
+                                           placeholder="Ingrese Gastos Comunes"
+                                           value="{{ depto.gastosc|default:'' }}">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3 mb-3">
@@ -111,17 +119,77 @@
                             </div>
                             <div class="col-sm-3 mb-3">
                                 <div class="form-group">
-                                    <label for="metros_tot">Metros</label>
+                                    <label for="metros_util">Metros Utiles</label>
+                                    <input name="metros_util" class="form-control" id="metros_util" type="number"
+                                           placeholder="Ingres metros Utiles"
+                                           value="{{ depto.metros_util|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="metros_tot">Metros Totales</label>
                                     <input name="metros_tot" class="form-control" id="metros_tot" type="number"
-                                           placeholder="Ingres metros tot"
+                                           placeholder="Ingres metros totales"
                                            value="{{ depto.metros_tot|default:'' }}">
+                                </div>
+                            </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="estacionamiento">Estacionamiento</label>
+                                    <input name="estacionamiento" class="form-control" id="estacionamiento" type="number"
+                                           placeholder="Ingrese cantidad de estacionamientos"
+                                           value="{{ depto.estacionamiento|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="bodega">Bodega</label>
+                                    <input name="bodega" class="form-control" id="bodega" type="number"
+                                           placeholder="Ingrese Cantidad de bodegas"
+                                           value="{{ depto.bodega|default:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="orientacion">Orientacion</label>
+                                    <input name="orientacion" class="form-control" id="orientacion" type="text" placeholder="Orientacion"
+                                           value="{{ depto.orientacion|default:'' }}">
                                 </div>
                             </div>
                             <div class="col-sm-3 mb-3">
                                 <div class="form-group">
                                     <label for="piso">Piso</label>
-                                    <input name="piso" class="form-control" id="piso" type="text" placeholder="number"
+                                    <input name="piso" class="form-control" id="piso" type="text" placeholder="Piso"
                                            value="{{ depto.piso|default:'' }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="buenavista">Buena Vista</label>
+                                    <input name="buenavista" class="form-control" id="buenavista" type="text"
+                                           placeholder="Tiene buena vista?"
+                                           value="{{ depto.buenavista|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="alfombradormitorio">Alfombra en Dormitorio?</label>
+                                    <input name="alfombradormitorio" class="form-control" id="alfombradormitorio" type="text"
+                                           placeholder="Tiene Alfombra?"
+                                           value="{{ depto.alfombradormitorio|default:'' }}">
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mb-3">
+                                <div class="form-group">
+                                    <label for="lavavajillas">Tiene lavavajillas o espacio?</label>
+                                    <input name="lavavajillas" class="form-control" id="lavavajillas" type="text"
+                                           placeholder="Tiene lava vajillas?"
+                                           value="{{ depto.lavavajillas|default:'' }}">
                                 </div>
                             </div>
                         </div>

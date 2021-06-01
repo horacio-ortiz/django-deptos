@@ -27,33 +27,34 @@
                     <div class="card card-body bg-white border-light shadow-sm mb-4">
                         <h2 class="h5 mb-4">Listado Departamentos</h2>
                         <div class="table-responsive py-4">
-                            <table class="table table-flush" id="datatable">
+                            <table
+                                   class="table table-flush" id="datatable">
                             <thead class="thead-light">
                                 <tr>
-                                <th>Nombre</th>
-                                <th>URL</th>
-                                <th>Precio</th>
-                                <th>Ambientes</th>
-                                <th>Metros</th>
-                                <th>Fecha Visita</th>
-                                <th>Editar</th>
+                                    <th>Nombre</th>
+                                    <th >URL</th>
+                                    <th>Precio</th>
+                                    <th>Ambientes</th>
+                                    <th>Metros</th>
+                                    <th>Fecha Visita</th>
+                                    <th>Editar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for Depto in object_list %}
                                 <tr>
-                                <td>{{ Depto.titdepto }}</td>
-                                <td>{{ Depto.website }}</td>
-                                <td>{{ Depto.precio }}</td>
-                                <td>{{ Depto.ambientes }}</td>
-                                <td>{{ Depto.metros_tot }}</td>
-                                <td>{{ Depto.fecha_visita }}</td>
-                                <td class="mt-6">
-                                    <button type="submit" class="btn btn-sm btn-secondary"
-                                        aria-haspopup="true" aria-expanded="false" >
-                                        <a href="{% url 'editdepto' Depto.id %}">
-                                        <span class="fas fa-edit"></span> Editar </button>
-                                </td>
+                                    <td>{{ Depto.titdepto }}</td>
+                                    <td><a href="{{ Depto.website }}" target="_blank">Pagina del vendedor</a></td>
+                                    <td>{{ Depto.precio }}</td>
+                                    <td>{{ Depto.ambientes }}</td>
+                                    <td>{{ Depto.metros_tot }}</td>
+                                    <td>{{ Depto.fecha_visita }}</td>
+                                    <td class="mt-6">
+                                        <button type="submit" class="btn btn-sm btn-secondary"
+                                            aria-haspopup="true" aria-expanded="false" >
+                                            <a href="{% url 'editdepto' Depto.id %}">
+                                            <span class="fas fa-edit"></span> Editar </button>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

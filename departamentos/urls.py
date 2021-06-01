@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.urls import path, re_path
-from Departamentos import views
-from Departamentos.views import listaDeptoView
+from departamentos import views
+from departamentos.views import listaDeptoView
 
 urlpatterns = [
     path('departamento/', views.DeptoView.as_view(), name='depto'),

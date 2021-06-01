@@ -7,8 +7,8 @@ from django.views import View
 from django.views.generic import ListView, UpdateView
 from django.http import HttpResponse
 
-from Departamentos.forms import DeptoForm, form_validation_error
-from Departamentos.models import Depto
+from departamentos.forms import DeptoForm, form_validation_error
+from departamentos.models import Depto
 
 
 class listaDeptoView(ListView):

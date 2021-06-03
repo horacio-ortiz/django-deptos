@@ -6,7 +6,6 @@ from departamentos.models import Depto
 class DeptoForm(forms.ModelForm):
     titdepto = forms.CharField(max_length=255)
     direccion = forms.CharField(max_length=255)
-
     class Meta:
         model = Depto
         fields = '__all__'

@@ -7,6 +7,7 @@ class Depto(models.Model):
 
     titdepto = models.TextField(blank=False)
     website = models.URLField(max_length=200, blank=True)
+    publicacion = models.DateField(null=True, blank=True)
     '''Direccion '''
     direccion = models.CharField(max_length=255, null=True, blank=True)
     num = models.CharField(max_length=32, null=True, blank=True)
@@ -20,13 +21,14 @@ class Depto(models.Model):
     metros_tot = models.CharField(max_length=20, null=True, blank=True)
     precio = models.CharField(max_length=20, blank=True)
     '''data adicional'''
-    estacionamiento = models.CharField(max_length=20, null=True, blank=True)
-    bodega = models.CharField(max_length=20, null=True, blank=True)
     gastosc = models.CharField(max_length=20, null=True, blank=True)
     orientacion = models.TextField(max_length=20, null=True, blank=True)
-    lavavajillas = models.TextField(max_length=20, null=True, blank=True)
-    alfombradormitorio = models.TextField(max_length=20, null=True, blank=True)
-    buenavista = models.TextField(max_length=20, null=True, blank=True)
+    estacionamiento = models.BooleanField(default=False)
+    bodega = models.BooleanField(default=False)
+    lavavajillas = models.BooleanField(default=False)
+    pisodormitorio = models.BooleanField(default=False)
+    buenavista = models.BooleanField(default=False)
+    logia = models.BooleanField(default=False)
 
     '''Contacto  '''
     email = models.EmailField(blank=True, null=True, )

@@ -4,7 +4,22 @@
 {% block title %} Settings {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+    <script>
+      $( function() {
+        $( "#publicacion" ).datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+      });
+    </script>
+    <script>
+      $( function() {
+        $( "#fecha_visita" ).datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+      });
+    </script>
+{% endblock stylesheets %}
 
 {% block content %}
 
@@ -20,12 +35,21 @@
                     <div class="card card-body bg-white border-light shadow-sm mb-4">
                         <h2 class="h5 mb-4">Informacion Departamento</h2>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label for="titdepto">Nombre Depto</label>
                                     <input name="titdepto" class="form-control" id="titdepto" type="text"
                                            placeholder="Ingresar datos Depto" value="{{ depto.titdepto }}"
                                            required>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="publicacion">Fecha Publicacion</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
+                                    <input name="publicacion" class="form-control" id="publicacion"
+                                           type="text" placeholder="dd/mm/yyyy"
+                                           value="{{ depto.publicacion|date:'d/m/Y'|default:'' }}" >
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -81,7 +105,7 @@
                                 </div>
                             </div>
                         </div>
-                        <h2 class="h5 my-4">Caracteristicas</h2>
+                        <h2 class="h5 my-4">Valor</h2>
                         <div class="row">
                             <div class="col-sm-4 mb-3">
                                 <div class="form-group">
@@ -100,6 +124,7 @@
                                 </div>
                             </div>
                         </div>
+                        <h2 class="h5 my-4">Caracteristicas</h2>
                         <div class="row">
                             <div class="col-sm-3 mb-3">
                                 <div class="form-group">
@@ -133,25 +158,7 @@
                                            value="{{ depto.metros_tot|default:'' }}">
                                 </div>
                             </div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="estacionamiento">Estacionamiento</label>
-                                    <input name="estacionamiento" class="form-control" id="estacionamiento" type="number"
-                                           placeholder="Ingrese cantidad de estacionamientos"
-                                           value="{{ depto.estacionamiento|default:'' }}">
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="bodega">Bodega</label>
-                                    <input name="bodega" class="form-control" id="bodega" type="number"
-                                           placeholder="Ingrese Cantidad de bodegas"
-                                           value="{{ depto.bodega|default:'' }}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
+                         <div class="row">
                             <div class="col-sm-3 mb-3">
                                 <div class="form-group">
                                     <label for="orientacion">Orientacion</label>
@@ -167,29 +174,60 @@
                                 </div>
                             </div>
                         </div>
+                        <h2 class="h5 my-4">Otras Caracteristicas</h2>
                         <div class="row">
-                            <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="buenavista">Buena Vista</label>
-                                    <input name="buenavista" class="form-control" id="buenavista" type="text"
-                                           placeholder="Tiene buena vista?"
-                                           value="{{ depto.buenavista|default:'' }}">
+                            <div class="col-sm-2 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="estacionamiento"
+                                           value="checked" id="estacionamiento">
+                                    <label class="form-check-label" for="estacionamiento">
+                                        Estacionamiento
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="bodega"
+                                           value="checked" id="bodega">
+                                    <label class="form-check-label" for="bodega">
+                                        Bodega
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="logia"
+                                           value="checked" id="logia">
+                                    <label class="form-check-label" for="logia">
+                                        Logia
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="buenavista"
+                                           value="checked" id="buenavista">
+                                    <label class="form-check-label" for="buenavista">
+                                        Buena Vista
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="pisodormitorio"
+                                           value="checked" id="pisodormitorio">
+                                    <label class="form-check-label" for="pisodormitorio">
+                                        Dormitorio con Piso
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="alfombradormitorio">Alfombra en Dormitorio?</label>
-                                    <input name="alfombradormitorio" class="form-control" id="alfombradormitorio" type="text"
-                                           placeholder="Tiene Alfombra?"
-                                           value="{{ depto.alfombradormitorio|default:'' }}">
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-3">
-                                <div class="form-group">
-                                    <label for="lavavajillas">Tiene lavavajillas o espacio?</label>
-                                    <input name="lavavajillas" class="form-control" id="lavavajillas" type="text"
-                                           placeholder="Tiene lava vajillas?"
-                                           value="{{ depto.lavavajillas|default:'' }}">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="lavavajillas"
+                                           value="checked" id="lavavajillas">
+                                    <label class="form-check-label" for="lavavajillas">
+                                        Espacio para lavavajillas
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -199,9 +237,9 @@
                                 <label for="fecha_visita">Fecha Visita</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
-                                    <input name="fecha_visita" data-datepicker="" class="form-control" id="fecha_visita"
+                                    <input name="fecha_visita" class="form-control" id="fecha_visita"
                                            type="text" placeholder="dd/mm/yyyy"
-                                           value="{{ depto.fecha_visita|date:'m/d/Y'|default:'' }}" >
+                                           value="{{ depto.fecha_visita|date:'d/m/Y'|default:'' }}" >
                                 </div>
                             </div>
                             <div class="col-sm-9 mb-3">

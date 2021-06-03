@@ -18,8 +18,9 @@ class listaDeptoView(ListView):
 
 def edit_Depto(request, depto_id):
     depto = get_object_or_404(Depto, pk=depto_id)
-
+    print(depto.fecha_visita)
     if request.method == 'POST':
+        print(request.POST)
         modelform = DeptoForm(request.POST, request.FILES, instance=depto)
         if modelform.is_valid():
             modelform.save()
@@ -30,7 +31,6 @@ def edit_Depto(request, depto_id):
         return redirect('listadepto')
 
     return render(request, 'departamentos/depto_update_form.html', {'form': DeptoForm, 'depto': depto})
-
 
 @method_decorator(login_required(login_url='login'), name='dispatch')
 class DeptoView(View):
@@ -43,16 +43,17 @@ class DeptoView(View):
 
     def get(self, request):
         context = {'depto': self.depto, 'segment': 'depto'}
+        print(request.GET)
         return render(request, 'departamentos/deptos.html', context)
 
     def post(self, request):
+        print(request.POST)
         form = DeptoForm(request.POST, request.FILES, instance=self.depto)
-        depto = form.save()
-        depto.save()
+        print(request.POST)
 
         if form.is_valid():
-            
-
+            depto = form.save()
+            depto.save()
             messages.success(request, 'Departamento grabado con exito')
         else:
             messages.error(request, form_validation_error(form))

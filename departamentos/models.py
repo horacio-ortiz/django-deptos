@@ -35,7 +35,7 @@ class Depto(models.Model):
     numero_contacto = models.CharField(max_length=20, null=True, blank=True)
 
     '''Estado Visita  '''
-    fecha_visita = models.DateField(null=True)
+    fecha_visita = models.DateTimeField(blank=True, null=True)
     observaciones_visita = models.TextField(blank=True, null=True,)
     foto = models.ImageField(upload_to='departamentos/pictures', blank=True, null=True)
     pros = models.TextField(blank=True, null=True)

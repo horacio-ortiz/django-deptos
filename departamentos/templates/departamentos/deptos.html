@@ -5,6 +5,7 @@
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}
+
     <script>
       $( function() {
         $( "#publicacion" ).datepicker({
@@ -14,11 +15,17 @@
     </script>
     <script>
       $( function() {
-        $( "#fecha_visita" ).datepicker({
-                dateFormat: "dd/mm/yy"
+        $( "#fecha_visita" ).datetimepicker({
+                dateFormat: "dd/mm/yy",
+                timeInput: true,
+	            timeFormat: "HH:mm",
+	            showHour: false,
+	            showMinute: false,
+	            showTimezone: false
             });
       });
     </script>
+
 {% endblock stylesheets %}
 
 {% block content %}
@@ -238,8 +245,8 @@
                                 <div class="input-group">
                                     <span class="input-group-text"><span class="far fa-calendar-alt"></span></span>
                                     <input name="fecha_visita" class="form-control" id="fecha_visita"
-                                           type="text" placeholder="dd/mm/yyyy"
-                                           value="{{ depto.fecha_visita|date:'d/m/Y'|default:'' }}" >
+                                           type="text" placeholder="dd/mm/yyyy hh:mm"
+                                           value="{{ depto.fecha_visita|date:'d/m/Y H:i'|default:'' }}" >
                                 </div>
                             </div>
                             <div class="col-sm-9 mb-3">
